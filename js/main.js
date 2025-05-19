@@ -7,7 +7,7 @@ class BreathingApp {
             exhaleTime: 6000,    // 呼气时间（毫秒）
             totalDuration: 5 * 60 * 1000,  // 总时长（毫秒）
             reminderInterval: 120 * 60 * 1000,  // 提醒间隔（毫秒）
-            defaultBgImage: 'images/default-bg.jpg'  // 默认背景图片
+            defaultBgImage: './images/default-bg.jpg'  // 默认背景图片
         };
 
         // DOM 元素
