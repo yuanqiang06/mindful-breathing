@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>呼吸训练</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="breathing-container">
+            <svg class="progress-ring" width="300" height="300">
+                <circle class="progress-ring__circle-bg" cx="150" cy="150" r="140" />
+                <circle class="progress-ring__circle-progress" cx="150" cy="150" r="140" />
+            </svg>
+            <div class="breathing-circle">
+                <div class="breathing-ball"></div>
+            </div>
+            <div class="breathing-text">准备开始</div>
+        </div>
+        
+        <div class="controls">
+            <button id="startBtn" class="btn primary">开始训练</button>
+            <button id="pauseBtn" class="btn" disabled>暂停</button>
+            <button id="resetBtn" class="btn">重置</button>
+            <button id="settingsBtn" class="btn">设置</button>
+        </div>
+    </div>
+
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="settings-group">
+                <label for="durationSelect">训练时长（分钟）</label>
+                <select id="durationSelect">
+                    <option value="5">5分钟</option>
+                    <option value="10">10分钟</option>
+                    <option value="15">15分钟</option>
+                    <option value="20">20分钟</option>
+                </select>
+            </div>
+            
+            <div class="settings-group">
+                <label for="reminderInterval">提醒间隔（分钟）</label>
+                <select id="reminderInterval">
+                    <option value="60">60分钟</option>
+                    <option value="90">90分钟</option>
+                    <option value="120">120分钟</option>
+                    <option value="180">180分钟</option>
+                </select>
+            </div>
+            
+            <div class="settings-group">
+                <label for="ttsToggle">语音提示</label>
+                <input type="checkbox" id="ttsToggle" checked>
+            </div>
+            
+            <div class="settings-group">
+                <label for="bgSoundSelect">背景音乐</label>
+                <select id="bgSoundSelect">
+                    <option value="none">无</option>
+                    <option value="waves">海浪声</option>
+                    <option value="rain">雨声</option>
+                    <option value="forest">森林</option>
+                </select>
+            </div>
+            
+            <div class="settings-group">
+                <label for="bgImageUpload">背景图片</label>
+                <input type="file" id="bgImageUpload" accept="image/*">
+                <button id="removeBgImage" class="btn small">移除背景</button>
+            </div>
+            
+            <button id="closeSettings" class="btn">关闭</button>
+        </div>
+    </div>
+
+    <script>
+        // 确保在 DOM 加载完成后立即设置语音提示
+        document.addEventListener('DOMContentLoaded', function() {
+            const ttsToggle = document.getElementById('ttsToggle');
+            if (ttsToggle) {
+                ttsToggle.checked = true;
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
