@@ -7,7 +7,7 @@ class BreathingApp {
             exhaleTime: 6000,    // 呼气时间（毫秒）
             totalDuration: 5 * 60 * 1000,  // 总时长（毫秒）
             reminderInterval: 120 * 60 * 1000,  // 提醒间隔（毫秒）
-            defaultBgImage: ''  // 默认背景图片
+            defaultBgImage: 'images/default-bg.jpg'  // 默认背景图片
         };
 
         // DOM 元素
@@ -67,7 +67,7 @@ class BreathingApp {
         // 设置默认背景图片
         if (this.config.defaultBgImage) {
             document.body.style.backgroundImage = `url(${this.config.defaultBgImage})`;
-            document.body.style.backgroundSize = 'contain';
+            document.body.style.backgroundSize = 'cover';
             document.body.style.backgroundPosition = 'center';
             document.body.style.backgroundRepeat = 'no-repeat';
         }
@@ -114,8 +114,10 @@ class BreathingApp {
             if (file) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
+                    // 保存图片到 images 文件夹
+                    const imgPath = `images/${file.name}`;
                     document.body.style.backgroundImage = `url(${e.target.result})`;
-                    document.body.style.backgroundSize = 'contain';
+                    document.body.style.backgroundSize = 'cover';
                     document.body.style.backgroundPosition = 'center';
                     document.body.style.backgroundRepeat = 'no-repeat';
                 };
